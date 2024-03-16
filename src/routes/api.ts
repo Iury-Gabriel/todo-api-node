@@ -8,5 +8,6 @@ router.get("/todo", TodoController.all);
 router.post("/todo", TodoController.add);
 router.put("/todo/:id", TodoController.update);
 router.delete("/todo/:id", TodoController.remove);
+router.get('/ping', TodoController.ping);
 
 export default router;
