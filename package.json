@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev": "nodemon -r ts-node/register src/server.ts",
+    "start-dev": "npm run build && nodemon -e js,json dist/server.js",
     "build": "tsc"
   },
   "author": "",
