@@ -4,9 +4,17 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const sequelize = new Sequelize(
-    process.env.DB_URL as string,
+    process.env.EXTERNAL_DATABASE_URL as string,
     {
         dialect: 'postgres',
-        port: parseInt(process.env.PG_PORT as string)
     }
 );
+
+(async () => {
+    try {
+        await sequelize.authenticate();
+        console.log('Conexão com o banco de dados estabelecida com sucesso.');
+    } catch (error) {
+        console.error('Erro ao conectar-se ao banco de dados:', error);
+    }
+})();
